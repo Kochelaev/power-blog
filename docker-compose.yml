@@ -40,7 +40,7 @@ services:
     ports:
       - 3366:3306
     networks:
-      - blog       
+      - blog
 
 networks:
   blog:
