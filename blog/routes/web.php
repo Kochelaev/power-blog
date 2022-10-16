@@ -16,16 +16,15 @@ use App\Http\Controllers;
 |
 */
 
-// Route::get('/', function () {
-    // return view('welcome');
-// });
+
 
 Route::get('/', Controllers\Main\IndexController::class)->name('home');
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/', Controllers\Admin\Main\IndexController::class)->name('admin');
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', Controllers\Admin\Category\IndexController::class)->name('category');
+    });
 });
 
 Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
