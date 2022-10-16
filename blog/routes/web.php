@@ -22,8 +22,10 @@ Route::get('/', Controllers\Main\IndexController::class)->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', Controllers\Admin\Main\IndexController::class)->name('admin');
+    
     Route::group(['prefix' => 'categories'], function () {
-        Route::get('/', Controllers\Admin\Category\IndexController::class)->name('category');
+        Route::get('/', Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
+        Route::get('/create', Controllers\Admin\Category\CreateController::class)->name('admin.category.create');
     });
 });
 

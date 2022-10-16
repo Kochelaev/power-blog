@@ -27,14 +27,19 @@
       
       <div class="row">
 
-        <div class = "col-2">
-          <a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary"> 
-            Добавить
-          </a>
-        </div>
-
         <div class = "col-12">
-          Категории
+          Добавить категорию
+          
+          <form action="#" class="col-6">
+            <div class="card-body">
+              <div class="form-group">
+                <label for="categoryTitle">Название категории</label>
+                <input type="text" class="form-control" id="categoryTitle" placeholder="Название категории">
+              </div>
+              <input type="submit" class="btn btn-primary" value="Добавить">
+            </div>
+
+          </form>
         </div>
 
       </div>
@@ -42,6 +47,6 @@
 
     </div><!-- /.container-fluid -->
   </section>
-  <!-- /.content --> 
+  <!-- /.content -->
 </div>
 @endsection
