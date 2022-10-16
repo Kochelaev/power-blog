@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers;
-use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +21,10 @@ use App\Http\Controllers\Controller;
 // });
 
 Route::get('/', Controllers\Main\IndexController::class)->name('home');
+
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('/', Controllers\Admin\Main\IndexController::class)->name('admin');
+});
 
 Auth::routes();
 
