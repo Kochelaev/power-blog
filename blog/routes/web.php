@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/{category}', Controllers\Admin\Category\ShowController::class)->name('admin.category.show');
         Route::get('/{category}/edit', Controllers\Admin\Category\EditController::class)->name('admin.category.edit');
         Route::patch('/{category}/update}', Controllers\Admin\Category\UpdateController::class)->name('admin.category.update');
+        Route::delete('/{category}/delete', Controllers\Admin\Category\DeleteController::class)->name('admin.category.delete');
     });
 });
 
