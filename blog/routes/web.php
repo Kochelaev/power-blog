@@ -29,7 +29,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/', Controllers\Admin\Category\StoreController::class)->name('admin.category.store');
         Route::get('/{category}', Controllers\Admin\Category\ShowController::class)->name('admin.category.show');
         Route::get('/{category}/edit', Controllers\Admin\Category\EditController::class)->name('admin.category.edit');
-
+        Route::patch('/{category}/update}', Controllers\Admin\Category\UpdateController::class)->name('admin.category.update');
     });
 });
 

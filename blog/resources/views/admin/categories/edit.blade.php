@@ -30,8 +30,9 @@
         <div class = "col-12">
           Редактирование категории
           
-          <form action="#" method="POST" class="col-6">
+          <form action="{{route('admin.category.update', $category->id)}}" method="POST" class="col-6">
             @csrf
+            @method('PATCH')
             <div class="card-body">
               <div class="form-group">
                 <label for="categoryTitle">Название категории</label>

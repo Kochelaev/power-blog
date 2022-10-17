@@ -12,5 +12,4 @@ class EditController extends Controller
     {
         return view('admin.categories.edit', compact('category'));
     }
-
 }
