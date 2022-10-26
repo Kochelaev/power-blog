@@ -33,6 +33,21 @@ Route::group(['prefix' => 'admin'], function () {
         Route::patch('/{category}/update}', Controllers\Admin\Category\UpdateController::class)->name('admin.category.update');
         Route::delete('/{category}/delete', Controllers\Admin\Category\DeleteController::class)->name('admin.category.delete');
     });
+
+    Route::group(['prefix' => 'tag'], function () {
+        Route::get('/', Controllers\Admin\Tag\IndexController::class)->name('admin.tag.index');
+        Route::get('/create', Controllers\Admin\Tag\CreateController::class)->name('admin.tag.create');
+        Route::post('/', Controllers\Admin\Tag\StoreController::class)->name('admin.tag.store');
+        Route::get('/{tag}', Controllers\Admin\Tag\ShowController::class)->name('admin.tag.show');
+        Route::get('/{tag}/edit', Controllers\Admin\Tag\EditController::class)->name('admin.tag.edit');
+        Route::patch('/{tag}/update}', Controllers\Admin\Tag\UpdateController::class)->name('admin.tag.update');
+        Route::delete('/{tag}/delete', Controllers\Admin\Tag\DeleteController::class)->name('admin.tag.delete');
+    });
+});
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', Controllers\Admin\Main\IndexController::class)->name('admin');
+    
 });
 
 Auth::routes();

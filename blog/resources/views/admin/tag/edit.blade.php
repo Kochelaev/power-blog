@@ -28,19 +28,20 @@
       <div class="row">
 
         <div class = "col-12">
-          Добавить категорию
+          Редактирование тега
           
-          <form action="{{route('admin.category.store')}}" method="POST" class="col-6">
+          <form action="{{route('admin.tag.update', $tag->id)}}" method="POST" class="col-6">
             @csrf
+            @method('PATCH')
             <div class="card-body">
               <div class="form-group">
-                <label for="categoryTitle">Название категории</label>
-                <input type="text" name='title' class="form-control" id="categoryTitle" placeholder="Название категории">
+                <label for="tagTitle">Название тега</label>
+                <input type="text" name='title' class="form-control" id="tagTitle" value="{{$tag->title}}">
             </div>
             @error('title')
                 <div class="text-danger">{{$message}}<div>
             @enderror
-              <input type="submit" class="btn btn-primary" value="Добавить">
+              <input type="submit" class="btn btn-primary" value="Обновить">
             </div>
 
           </form>
