@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Dashboard</h1>
+          <h1 class="m-0">Администрирование</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -26,11 +26,10 @@
       <!-- Small boxes (Stat box) -->
       
       <div class="row">
-
         <div class = "col-12">
           Добавить пост
           
-          <form action="{{route('admin.post.store')}}" method="POST">
+          <form action="{{route('admin.post.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
               <div class="form-group">
@@ -49,6 +48,32 @@
                 <textarea id="summernote" name="content">
                   {{old('content')}}
                 </textarea>
+              </div>
+
+              <div class="form-group w-50">
+                <label for="exampleInputFile">Добавить превью</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="preview_image">
+                    <label class="custom-file-label">Выберите изображение</label>
+                  </div>
+                  <div class="input-group-append">
+                    <span class="input-group-text">Загрузка</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group w-50">
+                <label for="exampleInputFile">Добавить главное изображение</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="main_image">
+                    <label class="custom-file-label">Выберите изображение</label>
+                  </div>
+                  <div class="input-group-append">
+                    <span class="input-group-text">Загрузка</span>
+                  </div>
+                </div>
               </div>
 
               <div class="form-group">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Blog</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -75,7 +75,9 @@
 <script src="{{asset('plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
+
 <script>
 $(document).ready(function() {
   $('#summernote').summernote({
@@ -90,6 +92,12 @@ $(document).ready(function() {
   ]
 });
 });
+</script>
+
+<script>
+  $(function () {
+    bsCustomFileInput.init();
+  });
 </script>
 </body>
 </html>
