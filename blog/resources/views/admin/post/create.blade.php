@@ -34,7 +34,7 @@
             <div class="card-body">
               <div class="form-group">
                 @error('title')
-                  <div class="text-danger">{{$message}}<div>
+                  <div class="text-danger">{{$message}}</div>
                 @enderror
                 <label for="postTitle">Название поста</label>
                 <input type="text" name='title' class="form-control" id="postTitle" placeholder="Название поста"
@@ -43,7 +43,7 @@
 
               <div class="form-group">
                 @error('content')
-                <div class="text-danger">{{$message}}<div>
+                <div class="text-danger">{{$message}}</div>
                 @enderror
                 <textarea id="summernote" name="content">
                   {{old('content')}}
@@ -51,6 +51,9 @@
               </div>
 
               <div class="form-group w-50">
+                @error('preview_image')
+                  <div class="text-danger">{{$message}}</div>
+                @enderror
                 <label for="exampleInputFile">Добавить превью</label>
                 <div class="input-group">
                   <div class="custom-file">
@@ -64,6 +67,9 @@
               </div>
 
               <div class="form-group w-50">
+                @error('main_image')
+                  <div class="text-danger">{{$message}}</div>
+                @enderror
                 <label for="exampleInputFile">Добавить главное изображение</label>
                 <div class="input-group">
                   <div class="custom-file">
@@ -74,6 +80,25 @@
                     <span class="input-group-text">Загрузка</span>
                   </div>
                 </div>
+              </div>
+
+              <div class="form-group w-50">
+                @error('category_id')
+                  <div class="text-danger">{{$message}}</div>
+                @enderror
+                <label>Выберите категорию</label>
+                <select class="form-control" name="category_id">
+
+
+                  @foreach ($categories as $category) 
+                  <option value="{{$category->id}}" 
+                    {{$category->id == old('category_id') ? 'selected' : ''}}
+                  >
+                      {{$category->title}}
+                    </option>
+                  @endforeach
+                  
+                </select>
               </div>
 
               <div class="form-group">

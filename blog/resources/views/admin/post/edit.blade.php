@@ -39,7 +39,7 @@
                 <input type="text" name='title' class="form-control" id="postTitle" value="{{$post->title}}">
             </div>
             @error('title')
-                <div class="text-danger">{{$message}}<div>
+                <div class="text-danger">{{$message}}</div>
             @enderror
               <input type="submit" class="btn btn-primary" value="Обновить">
             </div>
