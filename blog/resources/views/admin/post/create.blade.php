@@ -30,22 +30,33 @@
         <div class = "col-12">
           Добавить пост
           
-          <form action="{{route('admin.post.store')}}" method="POST" class="col-6">
+          <form action="{{route('admin.post.store')}}" method="POST">
             @csrf
             <div class="card-body">
               <div class="form-group">
+                @error('title')
+                  <div class="text-danger">{{$message}}<div>
+                @enderror
                 <label for="postTitle">Название поста</label>
-                <input type="text" name='title' class="form-control" id="postTitle" placeholder="Название поста">
-            </div>
-            @error('title')
-                <div class="text-danger">{{$message}}<div>
-            @enderror
-              <input type="submit" class="btn btn-primary" value="Добавить">
-            </div>
+                <input type="text" name='title' class="form-control" id="postTitle" placeholder="Название поста"
+                value="{{old('title')}}">
+              </div>
 
+              <div class="form-group">
+                @error('content')
+                <div class="text-danger">{{$message}}<div>
+                @enderror
+                <textarea id="summernote" name="content">
+                  {{old('content')}}
+                </textarea>
+              </div>
+
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Добавить">
+              </div>
+            </div>
           </form>
         </div>
-
       </div>
       <!-- /.row -->
 
