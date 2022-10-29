@@ -32,7 +32,7 @@
           <form action="{{route('admin.post.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
-              <div class="form-group">
+              <div class="form-group w-50">
                 @error('title')
                   <div class="text-danger">{{$message}}</div>
                 @enderror
@@ -89,13 +89,21 @@
                 <label>Выберите категорию</label>
                 <select class="form-control" name="category_id">
 
-
                   @foreach ($categories as $category) 
                   <option value="{{$category->id}}" 
-                    {{$category->id == old('category_id') ? 'selected' : ''}}
+                    {{$category->id == old('category_id') ? ' selected' : ''}}
                   >
                       {{$category->title}}
                     </option>
+                  @endforeach
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Теги</label>
+                <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выберете тег" style="width: 100%;">
+                  @foreach ($tags as $tag)
+                  <option value="{{$tag->id}}" {{is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : ''}}>{{$tag->title}}</option>
                   @endforeach
                   
                 </select>
