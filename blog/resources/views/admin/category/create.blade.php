@@ -30,12 +30,12 @@
         <div class = "col-12">
           Добавить категорию
           
-          <form action="{{route('admin.tag.store')}}" method="POST" class="col-6">
+          <form action="{{route('admin.category.store')}}" method="POST" class="col-6">
             @csrf
             <div class="card-body">
               <div class="form-group">
-                <label for="tagTitle">Название категории</label>
-                <input type="text" name='title' class="form-control" id="tagTitle" placeholder="Название категории">
+                <label for="categoryTitle">Название категории</label>
+                <input type="text" name='title' class="form-control" id="categoryTitle" placeholder="Название категории">
             </div>
             @error('title')
                 <div class="text-danger">{{$message}}<div>
