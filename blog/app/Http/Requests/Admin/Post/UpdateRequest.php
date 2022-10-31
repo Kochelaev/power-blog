@@ -24,11 +24,11 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'         => 'required|string',
-            'content'       => 'required|string',
+            'title'         => 'nullable|string',
+            'content'       => 'nullable|string',
             'main_image'    => 'nullable|file',
             'preview_image' => 'nullable|file',
-            'category_id'   => 'required|exists:categories,id',
+            'category_id'   => 'nullable|exists:categories,id',
             'tag_ids'       => 'nullable|array',
             'tag_ids.*'     => 'nullable|integer|exists:tags,id',
         ];

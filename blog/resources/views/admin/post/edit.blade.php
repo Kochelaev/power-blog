@@ -52,11 +52,11 @@
                 </textarea>
               </div>
 
+              <div class="w-50"><img src="{{url($post->preview_image)}}" alt="preview_image" class="w-50"></div>
               <div class="form-group w-50">
                 @error('preview_image')
                   <div class="text-danger">{{$message}}</div>
                 @enderror
-                <img src="{{url($post->preview_image)}}" alt="preview_image" class="w-50 mb-2"> <br>
                 <label for="exampleInputFile">Добавить превью</label>
                 <div class="input-group">
                   <div class="custom-file">
@@ -64,20 +64,20 @@
                     <label class="custom-file-label">Выберите изображение</label>
                   </div>
                   <div class="input-group-append">
-                    <span class="input-group-text">Загрузка</span>
+                    <p><span class="input-group-text">Загрузка</span></p>
                   </div>
                 </div>
               </div>
 
+              <div class="w-50"><img src="{{url($post->main_image)}}" alt="main_image" class="w-50"></div>
               <div class="form-group w-50">
                 @error('main_image')
                   <div class="text-danger">{{$message}}</div>
                 @enderror
-                <img src="{{url($post->main_image)}}" alt="main_image" class="w-50 mb-2">
                 <label for="exampleInputFile">Добавить главное изображение</label>
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" name="main_image"> <br>
+                    <span><input type="file" class="custom-file-input" name="main_image"></span>
                     <label class="custom-file-label">Выберите изображение</label>
                   </div>
                   <div class="input-group-append">

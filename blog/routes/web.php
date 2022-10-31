@@ -17,8 +17,6 @@ use App\Http\Controllers\Controller;
 |
 */
 
-
-
 Route::get('/', Controllers\Main\IndexController::class)->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
