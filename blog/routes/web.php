@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +18,13 @@ use App\Http\Controllers\Controller;
 |
 */
 
+Auth::routes();
+
 Route::get('/', Controllers\Main\IndexController::class)->name('home');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', Controllers\Admin\Main\IndexController::class)->name('admin');
-    
+
     Route::group(['prefix' => 'categories'], function () {
         Route::get('/', Controllers\Admin\Category\IndexController::class)->name('admin.category.index');
         Route::get('/create', Controllers\Admin\Category\CreateController::class)->name('admin.category.create');
@@ -62,9 +65,3 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{user}/delete', Controllers\Admin\User\DeleteController::class)->name('admin.user.delete');
     });
 });
-
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', Controllers\Admin\Main\IndexController::class)->name('admin');
-});
-
-Auth::routes();

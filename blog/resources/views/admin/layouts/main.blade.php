@@ -28,14 +28,28 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light d-flex justify-content-between">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
-
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          @if (auth()->user())
+            <form action="{{route('logout')}}" method="post">
+              @csrf
+              <input type="submit" value="Выйти" class="btn-outline-primary">
+            </form>
+          @else
+            <form action="{{route('login')}}" method="post" }>
+              @csrf
+              <input type="submit" value="Войти" class="btn-outline-primary">
+            </form>
+          @endif
+        </li>
+      </ul>
     <!-- Right navbar links -->
     
   </nav>
