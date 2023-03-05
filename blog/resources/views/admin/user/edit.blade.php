@@ -48,6 +48,25 @@
               @error('email')
                 <div class="text-danger">{{$message}}</div>
               @enderror
+
+              <input type="hidden" name="user_id" value="{{$user->id}}">
+
+              <div class="form-group w-50">
+                @error('category_id')
+                  <div class="text-danger">{{$message}}</div>
+                @enderror
+                <label>Роль</label>
+                <select class="form-control" name="role">
+                  @foreach ($roles as $roleId => $role) 
+                  <option value="{{$roleId}}" 
+                    {{$user->role == $roleId ? ' selected' : ''}}
+                  >
+                      {{$role}}
+                    </option>
+                  @endforeach
+                </select>
+              </div>
+
               <input type="submit" class="btn btn-primary" value="Обновить">
             </div>
           </form>
